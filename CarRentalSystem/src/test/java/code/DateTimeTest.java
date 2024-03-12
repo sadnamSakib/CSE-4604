@@ -6,7 +6,10 @@ import static org.junit.Assert.assertEquals;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import code.DateTime;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 
+@TestMethodOrder(MethodOrderer.Random.class)
 public class DateTimeTest {
     private DateTime dateTime;
 

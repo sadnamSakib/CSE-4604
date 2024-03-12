@@ -1,44 +1,44 @@
 package code;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
-import static org.junit.Assert.assertEquals;
-import code.DateTime;
+import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.Random.class)
 public class RentalRecordTest {
     private RentalRecord rentalRecord;
-    private DateTime dummyDate;
+    private DateTime rentDate;
+    private DateTime estimatedReturnDate;
+    private DateTime actualReturnDate;
 
-
-    @Before
+    @BeforeEach
     public void setUp() {
-        dummyDate = new DateTime();
-        rentalRecord = new RentalRecord("R_123", dummyDate, dummyDate);
-
-
-    }
-
-
-    @Test
-    public void testGetEstimatedReturnDate() {
-        assertEquals(dummyDate, rentalRecord.getEstimatedReturnDate());
+        rentDate = new DateTime(); // Add appropriate parameters if needed
+        estimatedReturnDate = new DateTime(3); // Add appropriate parameters if needed
+        this.rentalRecord = new RentalRecord("RentId1", rentDate, estimatedReturnDate);
     }
 
     @Test
-    public void testGetRentDate() {
-        assertEquals(dummyDate, rentalRecord.getRentDate());
+    public void testConstructor() {
+        assertEquals(rentDate, rentalRecord.getRentDate());
+        assertEquals(estimatedReturnDate, rentalRecord.getEstimatedReturnDate());
     }
+
+
 
     @Test
     public void testToString() {
-        String expected = "R_123:" + dummyDate.toString() + ":" + dummyDate.toString() + ":none:none:none";
+        String expected = "RentId1:" + rentDate.toString() + ":" + estimatedReturnDate.toString() + ":none:none:none";
         assertEquals(expected, rentalRecord.toString());
     }
 
     @Test
     public void testGetDetails() {
-        String expected = "Record ID:             R_123\nRent Date:             " + dummyDate.toString() + "\nEstimated Return Date: " + new DateTime().toString();
+        String expected = "Record ID:             RentId1\nRent Date:             " + rentDate.toString() + "\nEstimated Return Date: " + estimatedReturnDate.toString();
         assertEquals(expected, rentalRecord.getDetails());
     }
 }

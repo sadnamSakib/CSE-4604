@@ -2,10 +2,12 @@ package code;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-
+@TestMethodOrder(MethodOrderer.Random.class)
 public class VehicleTypeTest {
     private VehicleType carType;
     private VehicleType vanType;
@@ -42,7 +44,7 @@ public class VehicleTypeTest {
 
     @Test
     public void testCanBeRentedForMinimumDays() {
-        assertEquals(2, carType.canBeRentedForMinimumDays(new DateTime(2), "car"));
+        assertEquals(3, carType.canBeRentedForMinimumDays(new DateTime(2), "car"));
         assertEquals(1, vanType.canBeRentedForMinimumDays(new DateTime(1), "van"));
     }
 

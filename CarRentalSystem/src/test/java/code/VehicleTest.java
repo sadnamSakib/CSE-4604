@@ -8,6 +8,8 @@ import code.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import code.Vehicle;
@@ -16,7 +18,7 @@ import code.VehicleType;
 
 import static org.junit.Assert.*;
 
-
+@TestMethodOrder(MethodOrderer.Random.class)
 public class VehicleTest {
     private Vehicle car_vehicle;
     private Vehicle van_vehicle;

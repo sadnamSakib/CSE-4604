@@ -1,6 +1,6 @@
 package code;
 
- class VehicleType {
+ public class VehicleType {
 
     private int carSeats;
     private int vanSeats=15;
